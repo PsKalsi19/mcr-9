@@ -43,6 +43,9 @@ const Video = () => {
                         <NotesPopover prevNotes={selectedVideoNotes} id={id} />
                     </div>
                 </div>
+                <h3 className="text-gray-800 mt-8 mb-4 font-semibold text-xl">
+                My Notes
+            </h3>
                {selectedVideoNotes && <NotesList selectedNotes={selectedVideoNotes} />}
             </div>
             <div className="w-4/12">
