@@ -3,6 +3,8 @@ import './App.css'
 import PrimaryLayout from './layout/PrimaryLayout'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
+import Playlist from './pages/Playlist';
+import WatchLater from './pages/WatchLater'
 
 function App() {
 
@@ -14,8 +16,8 @@ function App() {
           <Route path='home' element={<Home/>} />
           <Route path='explore/:category' element={<Explore/>} />
           <Route path='explore' element={<Explore/>} />
-          <Route path='playlist' element={<Explore/>} />
-          <Route path='watchlater' element={<Explore/>} />
+          <Route path='playlist' element={<Playlist/>} />
+          <Route path='watchlater' element={<WatchLater/>} />
 
         </Route>
       </Routes>

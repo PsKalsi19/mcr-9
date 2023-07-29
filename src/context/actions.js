@@ -1,5 +1,5 @@
 const Actions = {
-  SELECTED_CATEGORY: "selected_category",
+  ADD_TO_WATCHLATER:'add_to_watch_later',
 };
 
 export default Actions;

@@ -6,7 +6,7 @@ import VideoCard from "../components/VideoCard";
 
 const Explore = () => {
     const { category } = useParams()
-    const { dataState: { videos } } = useContext(DataContext)
+    const { dataState: { videos } } = useContext(DataContext);
     const [searchTerm,setSearchTerm]=useState('')
     const filteredVideos=()=>{
         if(!category && searchTerm==='') return videos
@@ -33,7 +33,7 @@ const Explore = () => {
             </div>
             <div className="flex flex-row justify-between flex-wrap">
             {
-                filteredVideos().map(video => <VideoCard key={video.id} video={video} />)
+                filteredVideos().map(video => <VideoCard key={video._id} video={video} />)
             }
 
         </div>
