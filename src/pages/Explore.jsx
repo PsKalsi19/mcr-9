@@ -27,7 +27,7 @@ const Explore = () => {
             </PageHeading>
             <div className="flex w-full">
                 <input type="search" 
-                className="bg-gray-50 my-4 border border-gray-300 text-gray-900 text-sm rounded-xl block w-full pl-10 p-2.5" placeholder="Search branch name..."
+                className="bg-gray-50 my-4 border border-gray-300 text-gray-900 text-sm rounded-xl block w-full pl-10 p-2.5" placeholder="Search title"
                 value={searchTerm} 
                 onChange={(e)=>setSearchTerm(e.target.value)} />
             </div>

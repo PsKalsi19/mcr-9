@@ -10,7 +10,7 @@ const PlaylistCard = ({ card }) => {
 
     return (
         <div className="relative w-64">
-            <XMarkIcon onClick={()=>deletePlaylist(card.id)} className="h-6 w-6 absolute right-0 text-gray-500" />
+            <XMarkIcon onClick={()=>deletePlaylist(card.id)} className="h-6 w-6 absolute cursor-pointer right-0 text-gray-500" />
             <Link to={`/playlist-items/${card.id}`} className="mx-2 my-4">
                 <img className="object-cover w-64 h-48" src={card.items[0].thumbnail} alt={card.title} />
                 <p className="text-gray-700 font-semibold py-4">{card.title}</p>
