@@ -6,4 +6,5 @@ export const initialState={
     videos:videos,
     watchLater:[],
     notes:[],
+    playlists:[]
 }

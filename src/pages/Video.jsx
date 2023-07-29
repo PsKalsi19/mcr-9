@@ -6,14 +6,15 @@ import { useParams } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
 import SingleVideoCard from "../components/SingleVideoCard";
 import { userImage } from "../utils/constants";
-import { getNotes, getWatchlist } from "../utils/localstorage-util";
+import {  getWatchlist } from "../utils/localstorage-util";
 import NotesPopover from "../components/NotesPopover";
 import NotesList from "../components/NotesList";
+import PlaylistPopover from "../components/PlaylistPopover";
 
 const Video = () => {
     const { id } = useParams()
     const [selectedVideo, setSelectedVideo] = useState(null)
-    const { dataState: { videos,notes }, toggleWatchList } = useContext(DataContext);
+    const { dataState: { videos, notes }, toggleWatchList } = useContext(DataContext);
     const watchlistData = getWatchlist();
     const isWatchlisted = watchlistData.find(watch => watch._id === Number(id)) ? true : false
     useEffect(() => {
@@ -39,14 +40,14 @@ const Video = () => {
                             {isWatchlisted ? <ClockIcon className="h-6 w-6 " /> :
                                 <ClockIconOutline className="h-6 w-6 " />}
                         </button>
-                        <CgPlayListAdd className="h-6 w-6" />
+                        <PlaylistPopover selectedVideo={selectedVideo} /> 
                         <NotesPopover prevNotes={selectedVideoNotes} id={id} />
                     </div>
                 </div>
                 <h3 className="text-gray-800 mt-8 mb-4 font-semibold text-xl">
-                My Notes
-            </h3>
-               {selectedVideoNotes && <NotesList selectedNotes={selectedVideoNotes} />}
+                    My Notes
+                </h3>
+                {selectedVideoNotes && <NotesList selectedNotes={selectedVideoNotes} />}
             </div>
             <div className="w-4/12">
                 <h4 className="text-gray-700 font-bold mb-2 text-2xl">More Videos:</h4>

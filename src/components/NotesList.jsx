@@ -29,7 +29,7 @@ const NotesList = ({ selectedNotes }) => {
                         <p className="8/12 text-lg font-normal text-gray-700">{ele}</p>
                         <div className="4/12 flex flex-row space-x-8 justify-between">
                             <EditNotePopover editNote={editNote} selectedIndex={index} oldText={ele} />
-                            <TrashIcon onClick={() => handleDelete(index)} className="h-6 w-6 text-gray-700" />
+                            <TrashIcon onClick={() => handleDelete(index)} className="h-6 w-6 cursor-pointer text-gray-700" />
                         </div>
                     </div>)
                 }
