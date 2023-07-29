@@ -4,13 +4,12 @@ import { useContext, useState } from 'react';
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { DataContext } from '../context/DataProvider';
 import Actions from '../context/actions';
-import { CgPlayListAdd } from 'react-icons/cg';
 import { setPlaylists } from '../utils/localstorage-util';
 const formInitialState={
     title: '',
     description: ''
 }
-const PlaylistPopover = ({ selectedVideo }) => {
+const PlaylistPopover = ({ selectedVideo,children }) => {
     const [formData, setFormData] = useState(formInitialState);
     const { dispatchDataState, dataState: { playlists },deletePlaylist } = useContext(DataContext)
     const onDataChange = (e) => {
@@ -40,7 +39,7 @@ const PlaylistPopover = ({ selectedVideo }) => {
     return (
         <Popover className="relative">
             <Popover.Button>
-                <CgPlayListAdd className="h-6 w-6" />
+                {children}
             </Popover.Button>
 
             <Popover.Panel className="absolute right-0 w-60 text-gray-600 border-b

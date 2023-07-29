@@ -40,7 +40,9 @@ const Video = () => {
                             {isWatchlisted ? <ClockIcon className="h-6 w-6 " /> :
                                 <ClockIconOutline className="h-6 w-6 " />}
                         </button>
-                        <PlaylistPopover selectedVideo={selectedVideo} /> 
+                        <PlaylistPopover selectedVideo={selectedVideo} >
+                        <CgPlayListAdd className="h-6 w-6" />
+                            </PlaylistPopover> 
                         <NotesPopover prevNotes={selectedVideoNotes} id={id} />
                     </div>
                 </div>
