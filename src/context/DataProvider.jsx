@@ -27,7 +27,9 @@ const DataProvider = ({ children }) => {
         }
     }, [])
 
-    const toggleWatchList = (video, isWatchlisted) => {
+    const toggleWatchList = (event,video, isWatchlisted) => {
+        event.stopPropagation()
+
         const watchlistData = getWatchlist();
         const newWatchlistData = isWatchlisted
             ? watchlistData.filter(ele => ele._id !== video._id)

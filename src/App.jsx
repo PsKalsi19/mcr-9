@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Explore from './pages/Explore'
 import Playlist from './pages/Playlist';
 import WatchLater from './pages/WatchLater'
+import Video from './pages/Video'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='explore' element={<Explore/>} />
           <Route path='playlist' element={<Playlist/>} />
           <Route path='watchlater' element={<WatchLater/>} />
+          <Route path='video/:id' element={<Video/>} />
 
         </Route>
       </Routes>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { userImage } from "../utils/constants";
 import { ClockIcon } from "@heroicons/react/24/solid"
 import { ClockIcon as ClockIconOutline } from "@heroicons/react/24/outline"
@@ -7,17 +7,21 @@ import { DataContext } from "../context/DataProvider";
 import { getWatchlist } from "../utils/localstorage-util";
 /* eslint-disable react/prop-types */
 const VideoCard = ({ video }) => {
-    const { thumbnail, creator, views, title, category } = video;
+    const { _id, thumbnail, creator, views, title, category } = video;
     const { toggleWatchList } = useContext(DataContext)
+    const navigate = useNavigate()
     const watchlistData = getWatchlist();
-    const isWatchlisted = watchlistData.find(({ _id }) => _id === video._id)?true:false
+    const isWatchlisted = watchlistData.find(watch => watch._id === _id) ? true : false
+    const singleVideoRedirect = () => {
+        navigate(`/video/${_id}`)
+    }
     return (
-        <Link className="mx-2 my-4">
+        <div onClick={singleVideoRedirect} className="mx-2 my-4">
             <div className="w-64 relative h-48">
                 <img className="object-cover w-64 h-48" src={thumbnail} alt={title} />
-                <button onClick={() => toggleWatchList(video,isWatchlisted)} className="h-8 w-8 bg-white ps-2 rounded absolute -right-1 -top-1 ">
-                   {isWatchlisted? <ClockIcon className="h-6 w-6 text-blue-400" />:
-                    <ClockIconOutline className="h-6 w-6 text-blue-400" />}
+                <button onClick={(e) => toggleWatchList(e, video, isWatchlisted)} className="h-8 w-8 bg-white ps-2 rounded absolute -right-1 -top-1 ">
+                    {isWatchlisted ? <ClockIcon className="h-6 w-6 text-blue-400" /> :
+                        <ClockIconOutline className="h-6 w-6 text-blue-400" />}
                 </button>
             </div>
             <div className="flex space-x-2">
@@ -33,7 +37,7 @@ const VideoCard = ({ video }) => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 
